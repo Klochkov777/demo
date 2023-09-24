@@ -31,7 +31,3 @@ services:
       PGADMIN_DEFAULT_PASSWORD: password
     volumes:
       - pgadmin-data:/var/lib/pgadmin
-
-volumes:
-  local_pgdata:
-  pgadmin-data:
