@@ -24,13 +24,15 @@ jobs:
 
 #      - name: Build Maven
 #        run: mvn clean install
-      - name: Setup Maven Action
-        uses: s4u/setup-maven-action@v1.2.1
-        with:
-          java-version: 17
+#      - name: Setup Maven Action
+#        uses: s4u/setup-maven-action@v1.2.1
+#        with:
+#          java-version: 17
 
       - name: Build with Maven
         run: mvn clean install
+      - name: Check target directory
+        run: ls ./target
 
 #      - name: Build Image
 #        run: docker build -t demo
@@ -49,8 +51,8 @@ jobs:
 #          password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Log in to GitHub Container Registry
         run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
-      - name: Clear target directory cache  #
-        run: rm -rf target  #
+#      - name: Clear target directory cache  #
+#        run: rm -rf target  #
       - name: Check target directory
         run: ls ./target
       - name: Build and push
