@@ -49,6 +49,11 @@ jobs:
       - name: Check target directory
         run: ls ./target
 
+      - name: Store artifact in GitHub Packages
+        run: mvn deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
