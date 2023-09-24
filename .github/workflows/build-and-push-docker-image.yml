@@ -77,7 +77,7 @@ jobs:
 #      - name: Push Docker Image
 #        run: docker push ghcr.io/klochkov777/demo:latest
 
-      - name: Store artifact in GitHub Packages
-        run: mvn deploy
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#      - name: Store artifact in GitHub Packages
+#        run: mvn deploy
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
