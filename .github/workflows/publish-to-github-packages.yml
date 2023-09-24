@@ -1,0 +1,31 @@
+#name: Publish to GitHub Packages
+#
+#on:
+#  push:
+#    branches:
+#      -develop
+#
+#jobs:
+#  publish:
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      - name: Checkout code
+#        uses: actions/checkout@v2
+#
+#      - name: Set up JDK 17
+#        uses: actions/setup-java@v2
+#        with:
+#          java-version: '17'
+#
+#      - name: Build Maven
+#        run: mvn clean install
+#
+#      - name: Build Image
+#        run: docker build -t user-profile-service
+#
+#      - name: Publish to GitHub Packages
+#        run: mvn deploy -DskipTests=true -Dusername=$MAVEN_USERNAME -Dpassword=$MAVEN_TOKEN
+#        env:
+#         MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
+#         MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
