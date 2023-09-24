@@ -8,6 +8,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      packages: write
+      contents: read
 
     steps:
       - name: Checkout code
@@ -49,10 +53,16 @@ jobs:
       - name: Check target directory
         run: ls ./target
 
+#      - name: Store artifact in GitHub Packages
+#        run: mvn deploy
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Store artifact in GitHub Packages
         run: mvn deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          settings-path: .github/workflows/settings.xml
 
       - name: Build and push
         uses: docker/build-push-action@v5
