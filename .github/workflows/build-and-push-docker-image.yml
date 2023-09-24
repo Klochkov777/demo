@@ -52,7 +52,7 @@ jobs:
       - name: Clear target directory cache  #
         run: rm -rf target  #
       - name: Check target directory
-        run: ls target
+        run: ls ./target
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
