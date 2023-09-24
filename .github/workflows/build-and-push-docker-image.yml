@@ -35,7 +35,7 @@ jobs:
         run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Push Docker Image
-        run: docker push ghcr.io/Klochkov777/demo:latest
+        run: docker push ghcr.io/${{ github.repository_owner }}/demo:latest
 
       - name: Store artifact in GitHub Packages
         run: mvn deploy
