@@ -14,16 +14,12 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Set up JDK 17
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v3
         with:
           java-version: '17'
-          distribution: 'adopt'
-          cache: 'local'
-
-      - name: Use Node.js 16.x
-        uses: actions/setup-node@v2
-        with:
-          node-version: '16.x'
+          distribution: 'temurin'
+          server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
+          settings-path: ${{ github.workspace }} # location for the settings.xml file
 
 
       - name: Build Maven
