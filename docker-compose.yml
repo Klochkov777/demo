@@ -1,0 +1,37 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    container_name: container_postgres
+    restart: unless-stopped
+    ports:
+      - "54320:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      GITHUB_USERNAME: Klochkov777
+    volumes:
+      - local_pgdata:/var/lib/postgresql/data
+
+  service:
+    image: docker.pkg.github.com/${GITHUB_USERNAME}/demo/demo:latest
+    ports:
+      - "8080:8080"
+      - "8443:8443"
+
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin4_container
+    restart: unless-stopped
+    ports:
+      - "8888:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: raj@nola.com
+      PGADMIN_DEFAULT_PASSWORD: password
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+
+volumes:
+  local_pgdata:
+  pgadmin-data:
