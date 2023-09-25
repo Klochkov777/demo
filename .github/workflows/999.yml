@@ -30,12 +30,15 @@ jobs:
    - name: Build with Maven and run tests
      run: mvn package
 
-   - name: Log in to the Container registry
-     uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
-     with:
-      registry: ${{ env.REGISTRY }}
-      username: ${{ github.actor }}
-      password: ${{ secrets.GITHUB_TOKEN }}
+#   - name: Log in to the Container registry
+#     uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
+#     with:
+#      registry: ${{ env.REGISTRY }}
+#      username: ${{ github.actor }}
+#      password: ${{ secrets.GITHUB_TOKEN }}
+
+   - name: Log in to GitHub Container Registry
+     run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
    - name: Extract metadata (tags, labels) for Docker
      id: meta
