@@ -57,11 +57,7 @@ jobs:
 #        run: mvn deploy
 #        env:
 #          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Store artifact in GitHub Packages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SETTINGS_PATH: .github/workflows/settings.xml
-        run: mvn deploy --settings $SETTINGS_PATH
+
 
       - name: Build and push
         uses: docker/build-push-action@v5
@@ -69,6 +65,12 @@ jobs:
           push: true
           tags: dockerhub_username/demo:latest
           context: .
+
+      - name: Store artifact in GitHub Packages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SETTINGS_PATH: .github/workflows/settings.xml
+        run: mvn deploy --settings $SETTINGS_PATH
 
 #      - name: Log in to GitHub Container Registry
 #        run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
