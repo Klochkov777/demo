@@ -9,16 +9,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      issues: write
+      contents: read
       packages: write
-      actions: write
-      checks: write
-      contents: write
-      deployments: write
-      pull-requests: write
-      repository-projects: write
-      security-events: write
-      statuses: write
 
     steps:
       - name: Checkout code
@@ -28,9 +20,9 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '17'
-          distribution: 'temurin'
-          server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
-          settings-path: ${{ github.workspace }} # location for the settings.xml file
+#          distribution: 'temurin'
+#          server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
+#          settings-path: ${{ github.workspace }} # location for the settings.xml file
 
       - name: GitHub Packages
         run: mvn --batch-mode -DuseGitHubPackages=true deploy
