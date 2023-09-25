@@ -1,5 +1,5 @@
 name: Deploy artifact
-# Store an artifact in GitHub Packages on every merge to develop branch
+
 
 on:
   push:
