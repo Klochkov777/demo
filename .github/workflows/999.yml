@@ -1,4 +1,4 @@
-ame: Create and publish a Docker image
+name: Docker image
 
 on:
  push:
