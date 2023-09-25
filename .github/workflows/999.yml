@@ -9,7 +9,7 @@ on:
 
 env:
  REGISTRY: ghcr.io
- IMAGE_NAME: iPrody/user-profile-service
+ IMAGE_NAME: Klochkov777/demo
 
 jobs:
  build-and-push-image:
@@ -44,7 +44,8 @@ jobs:
       images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
    - name: Build and push Docker image
-     uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
+#     uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4uses:
+     uses: docker/build-push-action@v5
      with:
       context: .
       file: ./Dockerfile
