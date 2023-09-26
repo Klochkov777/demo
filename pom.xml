@@ -16,6 +16,8 @@
 	<properties>
 		<java.version>17</java.version>
 		<org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
+		<github.repository.id>github</github.repository.id>
+		<github.repository.url>https://maven.pkg.github.com/Klochkov777/demo</github.repository.url>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -131,11 +133,11 @@
 			</plugin>
 		</plugins>
 	</build>
-<!--	<distributionManagement>-->
-<!--		<repository>-->
-<!--			<id>github</id>-->
-<!--			<url>https://maven.pkg.github.com/Klochkov777/demo</url>-->
-<!--		</repository>-->
-<!--	</distributionManagement>-->
+	<distributionManagement>
+		<repository>
+			<id>${github.repository.id}</id>
+			<url>${github.repository.url}</url>
+		</repository>
+	</distributionManagement>
 
 </project>
