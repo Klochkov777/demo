@@ -5,10 +5,11 @@ services:
     container_name: container_postgres
     restart: unless-stopped
     ports:
-      - "54320:5432"
+      - "5432:5432"
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: user_profile
 
 
 
@@ -19,10 +20,16 @@ services:
 #      - "8443:8443"
 
   myservice1:
-    image: ghcr.io/klochkov777/demo:develop
+    image: ghcr.io/klochkov777/demo:latest
     ports:
       - "8080:8080"
       - "8443:8443"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/user_profile
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+    depends_on:
+      - db
 
 
 
@@ -35,3 +42,5 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: raj@nola.com
       PGADMIN_DEFAULT_PASSWORD: password
+    depends_on:
+      - db
