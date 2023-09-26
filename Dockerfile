@@ -1,5 +1,6 @@
 FROM maven:3.8.3-openjdk-17
 
+
 ARG JAR_FILE=target/*.jar
 
 ENV SPRING_PROFILES_ACTIVE=dev
