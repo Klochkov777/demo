@@ -25,7 +25,7 @@ services:
       - "8080:8080"
       - "8443:8443"
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/user_profile
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db/user_profile
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=postgres
     depends_on:
