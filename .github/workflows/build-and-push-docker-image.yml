@@ -63,9 +63,9 @@ jobs:
           docker push ghcr.io/klochkov777/demo-service1:latest
         working-directory: ./demo-service1/
 
-      - name: Push
-        run: docker push ghcr.io/klochkov777/demo:latest
-#        working-directory: ./demo-service1/target/
+#      - name: Push
+#        run: docker push ghcr.io/klochkov777/demo:latest
+##        working-directory: ./demo-service1/target/
 
 
       - name: GitHub Packages
