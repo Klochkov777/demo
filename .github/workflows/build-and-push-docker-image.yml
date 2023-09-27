@@ -32,6 +32,9 @@ jobs:
           java-version: 17
           distribution: 'adopt'
 
+      - name: Build with Maven
+        run: mvn clean install
+
       - name: GitHub Packages
         run: mvn --batch-mode -DuseGitHubPackages=true deploy
         env:
@@ -46,7 +49,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
-          path: ./demo-service1
+          context: demo-service1
           push: true
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
 
