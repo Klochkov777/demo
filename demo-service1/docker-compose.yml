@@ -9,11 +9,11 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: user_profile
+      POSTGRES_DB: user_profiles
 
 
   myservice1:
-    image: ghcr.io/klochkov777/demo:latest
+    image: ghcr.io/klochkov777/demo-service1:latest
     ports:
       - "8080:8080"
       - "8443:8443"
