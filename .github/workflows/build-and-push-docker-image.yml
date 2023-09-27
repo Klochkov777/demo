@@ -9,7 +9,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: klochkov777/demo
+  IMAGE_NAME: klochkov777/demo-service1
 
 
 jobs:
