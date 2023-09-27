@@ -11,12 +11,16 @@ env:
   REGISTRY: ghcr.io
   IMAGE_NAME: klochkov777/demo
 
+
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
+    defaults: #777
+      run:
+        working-directory: ./demo-service1 #777
 
     steps:
       - name: Checkout code
