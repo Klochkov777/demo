@@ -41,6 +41,12 @@ jobs:
       - name: Log in to GitHub Container Registry
         run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
+      - name: GitHub Packages
+        run: mvn --batch-mode -DuseGitHubPackages=true deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          working-directory: ./demo-service1/
+
       - name: ls place
         run: ls ./
 
@@ -68,10 +74,12 @@ jobs:
 ##        working-directory: ./demo-service1/target/
 
 
-      - name: GitHub Packages
-        run: mvn --batch-mode -DuseGitHubPackages=true deploy
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#      - name: GitHub Packages
+#        run: mvn --batch-mode -DuseGitHubPackages=true deploy
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        working-directory: ./demo-service1/
+
 
 #                    context: demo-service1
 
