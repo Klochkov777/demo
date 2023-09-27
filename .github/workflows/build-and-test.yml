@@ -22,8 +22,8 @@ jobs:
       - name: Build with Maven
         run: mvn clean install
 
-      - name: check target
-        run: ls ./target
+#      - name: check target
+#        run: ls ./target
 
       - name: Run Checkstyle
         run: mvn checkstyle:check
