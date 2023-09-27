@@ -8,6 +8,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults: #777
+      run:
+        working-directory: ./demo-service1/ #777
 
 
     steps:
