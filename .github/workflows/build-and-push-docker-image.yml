@@ -54,7 +54,7 @@ jobs:
         uses: docker/setup-buildx-action@v3
 
       - name: Docker Build
-        run: docker build -t demo:latest .
+        run: docker build -t demo .
         working-directory: ./demo-service1/
 
       - name: Push
