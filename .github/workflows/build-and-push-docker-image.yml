@@ -18,9 +18,9 @@ jobs:
     permissions:
       contents: read
       packages: write
-    defaults: #777
-      run:
-        working-directory: ./demo-service1/ #777
+#    defaults: #777
+#      run:
+#        working-directory: ./demo-service1/ #777
 
     steps:
       - name: Checkout code
@@ -34,6 +34,7 @@ jobs:
 
       - name: Build with Maven
         run: mvn clean install
+        working-directory: ./demo-service1/
 
       - name: GitHub Packages
         run: mvn --batch-mode -DuseGitHubPackages=true deploy
