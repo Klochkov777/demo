@@ -62,7 +62,6 @@ jobs:
         run: mvn --batch-mode -DuseGitHubPackages=true deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        context: demo-service1
 
 #                    context: demo-service1
 
