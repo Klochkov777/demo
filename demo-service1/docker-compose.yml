@@ -1,0 +1,39 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    container_name: container_postgres
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: user_profile
+
+
+  myservice1:
+    image: ghcr.io/klochkov777/demo:latest
+    ports:
+      - "8080:8080"
+      - "8443:8443"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db/user_profiles
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+    depends_on:
+      - db
+
+
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin4_container
+    restart: unless-stopped
+    ports:
+      - "8888:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: raj@nola.com
+      PGADMIN_DEFAULT_PASSWORD: password
+    depends_on:
+      - db
