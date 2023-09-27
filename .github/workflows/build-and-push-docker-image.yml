@@ -20,7 +20,7 @@ jobs:
       packages: write
     defaults: #777
       run:
-        working-directory: ./demo-service1 #777
+        working-directory: ./demo-service1/ #777
 
     steps:
       - name: Checkout code
