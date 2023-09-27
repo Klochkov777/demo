@@ -55,11 +55,11 @@ jobs:
 
       - name: Docker Build
         run: docker build -t demo:latest
-        working-directory: ./user-service1/
+        working-directory: ./demo-service1/
 
       - name: Push
         run: docker push ghcr.io/klochkov777/demo:latest
-#        working-directory: ./user-service1/target/
+#        working-directory: ./demo-service1/target/
 
 
       - name: GitHub Packages
