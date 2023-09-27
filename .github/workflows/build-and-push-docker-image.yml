@@ -67,7 +67,7 @@ jobs:
         run: |
           docker build . --tag ghcr.io/klochkov777/demo-service1:latest
           docker push ghcr.io/klochkov777/demo-service1:latest
-        working-directory: ./demo-service1/
+#        working-directory: ./demo-service1/
 
 #      - name: Push
 #        run: docker push ghcr.io/klochkov777/demo:latest
