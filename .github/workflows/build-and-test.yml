@@ -12,7 +12,6 @@ jobs:
       run:
         working-directory: ./demo-service1/ #777
 
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -25,9 +24,6 @@ jobs:
 
       - name: Build with Maven
         run: mvn clean install
-
-#      - name: check target
-#        run: ls ./target
 
       - name: Run Checkstyle
         run: mvn checkstyle:check
