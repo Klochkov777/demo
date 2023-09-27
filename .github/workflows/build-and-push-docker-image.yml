@@ -52,12 +52,9 @@ jobs:
 #          context: demo-service1
 #          push: true
 #          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
-
-#      - name: Docker Build
-#        run: docker build -t demo .
-#        working-directory: ./demo-service1/
 
       - name: Docker Build
         run: |
@@ -71,21 +68,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           working-directory: ./demo-service1/
-#      - name: Push
-#        run: docker push ghcr.io/klochkov777/demo:latest
-##        working-directory: ./demo-service1/target/
-
-
-#      - name: GitHub Packages
-#        run: mvn --batch-mode -DuseGitHubPackages=true deploy
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#        working-directory: ./demo-service1/
-
-
-#                    context: demo-service1
-
-#          cache-dependency-path: ./demo-service1/
-#            path: ./demo-service1
-
-#          file: ./Dockerfile   #777   cache-dependency-path: ./demo-service1   cache: 'path'
