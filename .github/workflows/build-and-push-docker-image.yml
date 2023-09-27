@@ -47,7 +47,6 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: demo-service1
-          file: ./Dockerfile   #777
           push: true
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
 
@@ -55,3 +54,5 @@ jobs:
 
 #          cache-dependency-path: ./demo-service1/
 #            path: ./demo-service1
+
+#          file: ./Dockerfile   #777
