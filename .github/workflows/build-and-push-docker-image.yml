@@ -9,7 +9,8 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: klochkov777/demo
+  IMAGE_NAME: klochkov777/demo-service1
+
 
 jobs:
   build:
@@ -28,18 +29,35 @@ jobs:
           java-version: 17
           distribution: 'adopt'
 
-      - name: GitHub Packages
-        run: mvn --batch-mode -DuseGitHubPackages=true deploy
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#      - name: Build with Maven
+#        run: mvn clean install
+#        working-directory: ./demo-service1/
+#      - name: GitHub Packages
+#        run: mvn --batch-mode -DuseGitHubPackages=true deploy
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#          working-directory: ./demo-service1/
+
 
       - name: Log in to GitHub Container Registry
         run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
+      - name: GitHub Packages
+        run: mvn --batch-mode -DuseGitHubPackages=true deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          working-directory: ./demo-service1/
+
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
-          context: .
-          file: ./Dockerfile
+          context: demo-service1
           push: true
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+
+
+#      - name: GitHub Packages
+#        run: mvn --batch-mode -DuseGitHubPackages=true deploy
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#          working-directory: ./demo-service1/
