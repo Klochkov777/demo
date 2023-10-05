@@ -24,6 +24,7 @@
 	</properties>
 	<modules>
 		<module>demo-service1</module>
+		<module>e2e</module>
 	</modules>
 	<dependencies>
 		<dependency>
