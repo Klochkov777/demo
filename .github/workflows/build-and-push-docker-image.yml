@@ -29,14 +29,18 @@ jobs:
           java-version: 17
           distribution: 'adopt'
 
-#      - name: Build with Maven
-#        run: mvn clean install
-#        working-directory: ./demo-service1/
+
+#      - name: GitHub Packages
+#        run: |
+#          cd ./demo-service1
+#          mvn --batch-mode -DuseGitHubPackages=true deploy
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: GitHub Packages
-        run: | 
+        run: |
           cd ./demo-service1
-          mvn --batch-mode -DuseGitHubPackages=true deploy
+          mvn --batch-mode -DuseGitHubPackages=true deploy -f ./demo-service1/pom.xml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
