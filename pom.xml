@@ -140,10 +140,10 @@
 <!--			</plugin>-->
 <!--		</plugins>-->
 	</build>
-	<distributionManagement>
-		<repository>
-			<id>${github.repository.id}</id>
-			<url>${github.repository.url}</url>
-		</repository>
-	</distributionManagement>
+<!--	<distributionManagement>-->
+<!--		<repository>-->
+<!--			<id>${github.repository.id}</id>-->
+<!--			<url>${github.repository.url}</url>-->
+<!--		</repository>-->
+<!--	</distributionManagement>-->
 </project>
