@@ -38,6 +38,8 @@ jobs:
       - name: GitHub Packages
         run: | 
           ls ./
+          cd ./demo-service1
+          ls ./
           mvn --batch-mode -DuseGitHubPackages=true deploy -f ./pom.xml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
