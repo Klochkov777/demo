@@ -17,11 +17,14 @@
 	<properties>
 		<java.version>17</java.version>
 		<org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
-		<github.repository.id>github</github.repository.id>
-		<github.repository.url>https://maven.pkg.github.com/Klochkov777/demo</github.repository.url>
+<!--		<github.repository.id>github</github.repository.id>-->
+<!--		<github.repository.url>https://maven.pkg.github.com/Klochkov777/demo</github.repository.url>-->
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
 	</properties>
 	<modules>
 		<module>demo-service1</module>
+		<module>e2e</module>
 	</modules>
 	<dependencies>
 		<dependency>
@@ -137,10 +140,10 @@
 <!--			</plugin>-->
 <!--		</plugins>-->
 	</build>
-	<distributionManagement>
-		<repository>
-			<id>${github.repository.id}</id>
-			<url>${github.repository.url}</url>
-		</repository>
-	</distributionManagement>
+<!--	<distributionManagement>-->
+<!--		<repository>-->
+<!--			<id>${github.repository.id}</id>-->
+<!--			<url>${github.repository.url}</url>-->
+<!--		</repository>-->
+<!--	</distributionManagement>-->
 </project>
